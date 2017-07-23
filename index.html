@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app name='foodieApp'>
 
 <head>
     <meta charset="UTF-8">
@@ -9,36 +9,48 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
 	<script src="js/angular.min.js"></script>
+	
+	<style>
+  input.ng-invalid.ng-dirty {
+            border: 1px solid red;     <!-----ess se border red ho jayega jse hi ng-dirty ya ng-invalid ho---->
+        }
+    </style>
+ 
 </head>
 
 <body id="app">
-    <div class="login">
-        <div class="login-form">
+    <div class="login hidden" ><!------------login class start----->
+        <div class="login-form"><!--------------login form start------------>
             <h3> Login </h3>
-            <form action="http://sarthakbatra.com/loginSubmit" method="POST" name="loginForm">
-    
-			     <!--<div class="form-group">
-                    <label for="exampleInputName">Name</label>
-                    <input type="text" class="form-control" id="user-name" placeholder="Name" ng-model="name" required="">
-                </div>-->
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="user-email" placeholder="Email" required="" ng-model="user.email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="user-password" placeholder="Password" required="" ng-model="user.password">
-                </div>
-				<div class='welcome-message'></div>
-                <div type="submit" class="btn btn-default">Login</div>
-            </form>
-        </div>
-    </div>
-    <div class="main hidden">
+				<form name="loginForm">
+						<div class="form-group">
+							<label for="user-email">Email address</label>
+							<input type="email" class="form-control" id="user-email" placeholder="Email" name="email" ng-model="user.email" required="">
+							<div ng-show="loginForm.email.$error.required">Required!</div>
+							<div ng-show="loginForm.email.$error.email">This doesn't look like a valid email</div>
+						</div>
+						<div class="form-group">
+							<label for="user-password">Password</label>
+							<input type="password" class="form-control" id="user-password" placeholder="Password" name="password" required="" ng-model="user.password" ng-minlength="6" ng-maxlength="15">
+							<div ng-show="loginForm.password.$error.minlength">
+							Password must be at least 6 characters long 
+							</div>
+							<div ng-show="loginForm.password.$error.maxlength">
+							Password must be at most 15 characters long 
+							</div>
+							<div ng-show="loginForm.password.$error.required">
+							Please enter your super secret ninja password 
+							</div>
+						</div>
+						<button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid">Login</button>
+				</form>
+        </div><!--------------login form end------------>
+    </div><!------------login class end----->
+    <div class="main" ng-controller="mainController"><!-------------main class start-------------->
         <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
+            <div class="container-fluid"><!-- /.container-fluid start -->
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
+                <div class="navbar-header"><!--------class navbar header start------->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -46,26 +58,34 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Foodie</a>
-                </div>
+                </div><!--------class navbar header end------->
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><!-- /.navbar-collapse start -->
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">About</a></li>
                         <li><a href="#">Order Online</a></li>
                     </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid end -->
         </nav>
-        <div class="ui container">
-            <div class="hero">
+        <div class="ui container"> <!---class ui container start----->
+            <div class="hero"><!---class hero start---->
                 <p>Find the best restaurants in town</p>
-            </div>
-        </div>
-    </div>
+            </div><!---class hero end---->
+			  <!-- <div>Apex</div>
+			   <div>JW</div>
+			   <div>Aroma</div>
+			   <div>Shrma daba</div>--->
+			    <div ng-repeat="restaurant in restaurants">
+                {{restaurant}}
+                </div>
+        </div><!---class ui container end----->
+    </div><!-------------main class end-------------->
+	
+	
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+	<script src="main.js"></script>
 	
    
 </body>
