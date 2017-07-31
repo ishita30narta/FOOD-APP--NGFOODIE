@@ -31,14 +31,14 @@
      <div>Shrma daba</div>--->
     <div class="search-bar">
             <form>
-      <div class="input-wrapper">
+      <div class="input-wrapper"><!--search box bnya h--->
         <input type="text" class="form-control" placeholder="Search..." ng-model="query">
       </div>
-      <button type="submit" class="btn btn-default">Search</button>
+      <button type="submit" class="btn btn-default">Search</button><!---search botton bnaya -->
       </form>
     </div>
 <!------------------------------------------------------------------------------------------------>
-   <div ng-repeat="restaurant in restaurants | filter:query" class="restaurant">
+   <div ng-repeat="restaurant in restaurants | filter:query" class="restaurant"><!--filter sae h kisi bhi data ko search kr skte h-->
 <div class="rest-wrapper">
     <div class="image">
         <img src="{{restaurant.image}}" height="100" width="100">
