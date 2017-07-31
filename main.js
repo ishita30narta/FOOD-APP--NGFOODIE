@@ -1,4 +1,4 @@
-var foodieApp = angular.module('foodieApp',[]);
+var foodieApp = angular.module('foodieApp',['ngRoute']);
   console.log(foodieApp);
 
 
