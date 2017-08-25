@@ -1,8 +1,8 @@
-<div class="main" ng-controller="mainController"><!-------------main class start-------------->
+<div class="main " ng-controller="mainController">
     <nav class="navbar navbar-default navbar-fixed">
-        <div class="container-fluid"><!-- /.container-fluid start -->
+        <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header"><!--------class navbar header start------->
+            <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -10,70 +10,79 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Foodie</a>
-            </div><!--------class navbar header end------->
+            </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><!-- /.navbar-collapse start -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                   <li><a href="#!/home">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Order Online</a></li>
+                    <li><a href="#!/">Logout</a></li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid end -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
     </nav>
-    <div class="ui container"> <!---class ui container start----->
-        <div class="hero"><!---class hero start---->
+    <div class="ui container">
+
+        <div class="hero">
             <p>Find the best restaurants in town</p>
         </div>
-  <!----------class hero end---->
-     <!--<div>Apex</div>
-     <div>JW</div>
-     <div>Aroma</div>
-     <div>Shrma daba</div>--->
-    <div class="search-bar">
-            <form>
-      <div class="input-wrapper"><!--search box bnya h--->
-        <input type="text" class="form-control" placeholder="Search..." ng-model="query">
-      </div>
-      <button type="submit" class="btn btn-default">Search</button><!---search botton bnaya -->
-      </form>
+  <div class="search-bar">
+             <form>
+    <div class="input-wrapper">
+      <input type="text" class="form-control" placeholder="Search..." ng-model="query">
     </div>
-<!------------------------------------------------------------------------------------------------>
-   <div ng-repeat="restaurant in restaurants | filter:query" class="restaurant"><!--filter sae h kisi bhi data ko search kr skte h-->
-<div class="rest-wrapper">
-    <div class="image">
-        <img src="{{restaurant.image}}" height="100" width="100">
-    </div>
-    <div class="rest-info">
-        <div class="rest-category">
+    <button type="submit" class="btn btn-default">Search</button>
+    </form>
+  </div>
+<div ng-repeat="restaurant in restaurants | filter:query" class="restaurant">
+      <div class="rest-wrapper">
+        <div class="image">
+          <img src="{{restaurant.image}}" height="100" width="100">
+        </div>
+        <div class="rest-info">
+          <div class="rest-category">
            <small>{{restaurant.category}} </small>
         </div>
         <div class="rest-name">
-        <strong>{{restaurant.name}}</strong>
-        </div>
+  <a ng-href="#!/restaurant/{{restaurant.id}}"><strong>{{restaurant.name}}</strong></a>
+  </div>
         <div>
            <strong> {{restaurant.location}}</strong>
         </div>
         <div class="rest-address">
-            {{restaurant.address}}
+          {{restaurant.address}}
         </div>
+      </div>
     </div>
-</div>
-<div class="rest-extra">
-    <div class="type">
+    <div class="rest-extra">
+      <div class="type">
         <div><small>Cuisines:</small></div>
         <div><small>Cost for Two: </small></div>
         <div><small>Hours:</small></div>
+   <div ng-if="restaurant.bestDish"><small>Recommended: </small></div>
+      </div>
+      <div class="value">
+        <div>{{restaurant.cuisines}}</div>
+        <div>₹{{restaurant.cost | number}}</div>
+        <div>{{restaurant.hours}}</div>
+      
+
+      </div>
     </div>
-    <div class="value">
-<div>{{restaurant.cuisines}}</div>
-<div>₹{{restaurant.cost | number}}</div>
-<div>{{restaurant.hours}}</div>
+    <div class="rating">
+      <strong>{{restaurant.vote}}</strong>
     </div>
+  </div>
+    </div>
+
 </div>
-<div class="rating">
-    <strong>{{restaurant.vote}}</strong>
+<div ng-if="ingredients">
+    <ol>
+    <li ng-repeat="ingredient in ingredients">
+    {{ingredient}}
+    </li>
+    </ol>
 </div>
-</div>
-<!-------------------------------------------------------------------------------------------------------------------->
-    </div><!---class ui container end----->
-</div><!-------------main class end-------------->

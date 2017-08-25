@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='foodieApp'> <!--nd-app se pta chlta h ki hm angular use kr rhe h,toh hme
-                                            angular start krne k liye likhna pdhta h-->
+<html lang="en"ng-app='foodieApp'>
 
-<head><!---------start head--------->
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Foodie</title> <!--used to give title--->
+    <title>Foodie</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <script src="js/angular.min.js"></script>
+  <script src="https://code.angularjs.org/1.6.5/angular-route.js"></script>
+
     <link rel="stylesheet" href="main.css">
-	<script src="js/angular.min.js"></script>
-  <script src="https://code.angularjs.org/1.6.5/angular-route.js"></script> <!--add superpower(routing) code,add link-->
+</head>
 
-    <style>
-  input.ng-invalid.ng-dirty {
-            border: 1px solid red;     /*se border red ho jayega jse hi ng-dirty ya ng-invalid ho*/
-        }
-    </style>
+<body id="app">
 
-</head><!--------end head----------->
-
-<body id="app"><!--------body start---------->
+<div ng-view="">
 
 
 
-    <div ng-view></div> <!--jo bhi code run krna ho vo ngview m aa jata h--->
-    <script src="js/jquery.js"></script><!--add link to add jquery-->
-    <script src="js/bootstrap.min.js"></script><!--add link to add bootstrap-->
-	  <script src="main.js"></script><!--add link to add main.js-->
+</div>
 
 
-</body><!---------body tag end----------------------->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="main.js"></script>
+</body>
 
 </html>

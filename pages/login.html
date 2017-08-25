@@ -1,27 +1,32 @@
-<div class="login" ng-controller="loginController"><!------------login class start----->
-    <div class="login-form"><!--------------login form start------------>
+
+<!--login-page-starting-->
+<div class="login"  ng-controller="loginController">
+    <div class="login-form">
         <h3> Login </h3>
-    <form name="loginForm">
-        <div class="form-group">
-          <label for="user-email">Email address</label><!--label tag label dene k km aata h,ess s khi bhi tick kroge ho jata h--->
-          <input type="email" class="form-control" id="user-email" placeholder="Email" name="email" ng-model="user.email" required="">
-          <div ng-show="loginForm.email.$error.required">Required!</div>
-          <div ng-show="loginForm.email.$error.email">This doesn't look like a valid email</div>
-        </div>
-        <div class="form-group">
-          <label for="user-password">Password</label>
-          <input type="password" class="form-control" id="user-password" placeholder="Password" name="password" required="" ng-model="user.password" ng-minlength="6" ng-maxlength="15">
-          <div ng-show="loginForm.password.$error.minlength"><!--min length password ki 6 hone chiye,vrna error show hoga-->
-          Password must be at least 6 characters long
-          </div>
-          <div ng-show="loginForm.password.$error.maxlength"><!--max length 15 honi chiye,if more than show error-->
-          Password must be at most 15 characters long
-          </div>
-          <div ng-show="loginForm.password.$error.required">
-          Please enter your super secret ninja password
-          </div>
-        </div>
-        <button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid">Login</button><!--agr login page fill nhi hua toh,login ko disable kr do,varna mt kro--->
-    </form>
-    </div><!--------------login form end------------>
-</div><!------------login class end----->
+  <form  name="loginForm">
+    <!--email-details-->
+     <div class="form-group">
+    <label for="user-email">Email address</label>
+    <input type="email" class="form-control" id="user-email" placeholder="Email" name="email" required="" ng-model="user.email">
+      <div ng-show="loginForm.email.$error.required">Required!</div>
+            <div ng-show="loginForm.email.$error.email">This doesn't look like a valid email</div>
+    </div>
+    <!--password-details-->
+     <div class="form-group">
+    <label for="user-password">Password</label>
+    <input type="password" class="form-control" id="user-password" placeholder="Password" name="password" required="" ng-model="user.password" ng-minlength="6" ng-maxlength="15">
+    <div ng-show="loginForm.password.$error.minlength">
+    Password must be at least 6 characters long
+    </div>
+    <div ng-show="loginForm.password.$error.maxlength">
+    Password must be at most 15 characters long
+    </div>
+    <div ng-show="loginForm.password.$error.required">
+    Please enter your super secret ninja password
+    </div>
+  </div>
+  <!---submit-button-->
+<button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid" ng-click="goToHome()">Login</button>
+   </form>
+ </div>
+</div>
